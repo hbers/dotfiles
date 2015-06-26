@@ -46,4 +46,4 @@ color3 aba742
 TEXT
 ${alignr}${if_mpd_playing}${color1}[${mpd_status}] ${color2}${mpd_smart}${color1} |${font}${else}${endif}\
 ${alignr}${color1} Vol: ${color2}${exec amixer get Master -M | grep -oE "[[:digit:]]*%"}\
-${alignr} ${color1}| Date ${color2}${time %d/%m/%y} ${color1} | Time ${color2}${time %H:%M} 
+${alignr} ${color1}| Date ${color2}${time %d/%m/%y}${color1} | Time ${color2}${time %H:%M} 
