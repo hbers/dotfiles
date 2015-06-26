@@ -1,0 +1,40 @@
+set bell-style none
+set meta-flag on
+set input-meta on
+set convert-meta off
+set output-meta on
+set show-all-if-ambiguous on
+
+$if mode=emacs
+"\e[1~": beginning-of-line
+"\e[4~": end-of-line
+"\e[5~": beginning-of-history
+"\e[6~": end-of-history
+"\e[7~": beginning-of-line
+"\e[3~": delete-char
+"\e[2~": quoted-insert
+"\e[5C": forward-word
+"\e[5D": backward-word
+"\e\e[C": forward-word
+"\e\e[D": backward-word
+"\e[1;5C": forward-word
+"\e[1;5D": backward-word
+
+$endif
+
+$if mode=vi
+
+set keymap vi-command
+# these are for vi-command mode
+"\e[A": history-search-backward            # arrow up
+"\e[B": history-search-forward             # arrow down
+"\ep": yank-last-arg                       # bind to Alt-p
+Control-l: clear-screen
+
+set keymap vi-insert
+# these are for vi-insert mode
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\ep": yank-last-arg
+Control-l: clear-screen
+$endif

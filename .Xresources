@@ -1,0 +1,68 @@
+*background: #222222
+*foreground: #E8E5E5
+! black
+*color0: #151515
+! bright_black
+*color8: #5d5d5d
+! red
+*color1: #bf3e6f
+! bright_red
+*color9: #dc9db7
+! green
+*color2: #79ad47
+! bright_green
+*color10: #c0caa6
+! yellow
+*color3: #aba742
+! bright_yellow
+*color11: #EBF52F
+! blue
+*color4: #517DF5
+! bright_blue
+*color12: #4F89DB
+! magenta
+*color5: #8363A6
+! bright_magenta
+*color13: #9F6BD6
+! cyan
+*color6: #50ad8d
+! bright_cyan
+*color14: #afcac3
+! white
+*color7: #cbcbcb
+! bright_white
+*color15: #ffffff
+
+URxvt*font: xft:Terminus:size=10
+!URxvt.boldFont:xft:Terminus:size=14
+URxvt.perl-ext-common : default,tabbedex,matcher
+URxvt.url-launcher: /usr/bin/firefox
+URxvt.colorUL: #4682B4
+URxvt.matcher.button  : 1
+!URxvt.letterSpace: -2
+URxvt*scrollBar: false
+URxvt*cursorBlink: false
+URxvt.tabbed.tabbar-fg: 4
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg:    1
+URxvt.tabbed.tab-bg:    0
+URxvt*.transparent: false
+! URxvt*.shading: 0 to 99 darkens, 101 to 200 lightens
+! URxvt*.shading: 50
+URxvt.iso14755 : false
+URxvt.tabbed.autohide: true
+URxvt.keysym.Control-t: perl:tabbedex:new_tab
+URxvt.keysym.Control-Tab: perl:tabbedex:next_tab
+URxvt.keysym.Control-Shift-Tab: perl:tabbedex:prev_tab
+!-- Xft settings -- !
+Xft.lcdfilter: lcddefault
+Xft.dpi:        96
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hintstyle:  hintslight
+URxvt*jumpScroll: true
+URxvt.scrollTtyOutput: False
+URxvt.scrollWithBuffer: True
+URxvt.scrollTtyKeypress: True
+URxvt.saveLines: 10000
