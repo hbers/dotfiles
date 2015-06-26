@@ -1,0 +1,169 @@
+#!/bin/bash
+
+hc() {
+    herbstclient "$@"
+}
+
+hc emit_hook reload
+
+feh --bg-scale /home/hasan/Belgeler/Wallpapers/1418441627573.jpg
+
+hc keyunbind --all
+
+Mod=Mod4 
+hc keybind $Mod-Shift-e quit
+hc keybind $Mod-Shift-r reload
+hc keybind $Mod-q close
+hc keybind $Mod-Return spawn urxvtc
+#Custom Shortcuts
+hc keybind Control-1 spawn firefox
+hc keybind Control-2 spawn pcmanfm
+hc keybind Control-3 spawn urxvtc -e ncmpcpp
+hc keybind Control-4 spawn skype
+hc keybind Control-5 spawn transmission-remote-gtk
+hc keybind $Mod-d spawn dmenu_extended_run
+hc keybind XF86AudioRaiseVolume spawn amixer set Master 5%+
+hc keybind XF86AudioLowerVolume spawn amixer set Master 5%-
+hc keybind XF86AudioMute spawn amixer -q set Master toggle
+hc keybind XF86AudioPlay spawn mpc play
+hc keybind XF86AudioStop spawn mpc pause
+hc keybind XF86AudioPrev spawn mpc prev
+hc keybind XF86AudioNext spawn mpc next
+hc keybind $Mod+0xff50 spawn systemctl suspend
+hc keybind $Mod+End spawn poweroff
+#focus
+hc keybind Control-Left  focus left
+hc keybind Control-Down  focus down
+hc keybind Control-Up    focus up
+hc keybind Control-Right focus right
+#shift
+hc keybind $Mod-Shift-Left  shift left
+hc keybind $Mod-Shift-Down  shift down
+hc keybind $Mod-Shift-Up    shift up
+hc keybind $Mod-Shift-Right shift right
+hc keybind $Mod-Shift-h     shift left
+hc keybind $Mod-Shift-j     shift down
+hc keybind $Mod-Shift-k     shift up
+hc keybind $Mod-Shift-l     shift right
+hc set default_frame_layout 3
+# cycle through tags
+hc keybind $Mod-Right use_index +1 --skip-visible
+hc keybind $Mod-Tab spawn ~/.config/herbstluftwm/tagswitch.sh next
+hc keybind $Mod-Shift-Tab spawn ~/.config/herbstluftwm/tagswitch.sh prev
+hc keybind $Mod-Left  use_index -1 --skip-visible
+# layouting
+hc keybind $Mod-Shift-q remove
+hc keybind $Mod-space cycle_layout 1
+hc keybind $Mod-s floating toggle
+hc keybind $Mod-f fullscreen toggle
+hc keybind $Mod-p pseudotile toggle
+# mouse
+hc mouseunbind --all
+hc mousebind $Mod-Button1 move
+hc mousebind $Mod-Button2 zoom
+hc mousebind $Mod-Button3 resize
+# focus
+hc keybind $Mod-BackSpace   cycle_monitor
+hc keybind Mod1-Tab         cycle_all +1
+hc keybind Mod1-Shift-Tab   cycle_all -1
+hc keybind $Mod-c cycle
+hc keybind $Mod-x jumpto urgent
+# splitting frames
+hc keybind $Mod-v       split   bottom  0.5
+hc keybind $Mod-h       split   right   0.5
+# let the current frame explode into subframes
+hc keybind $Mod-Control-space split explode
+# resizing frames
+resizestep=0.05
+hc keybind $Mod-Control-h       resize left +$resizestep
+hc keybind $Mod-Control-j       resize down +$resizestep
+hc keybind $Mod-Control-k       resize up +$resizestep
+hc keybind $Mod-Control-l       resize right +$resizestep
+hc keybind $Mod-Control-Left    resize left +$resizestep
+hc keybind $Mod-Control-Down    resize down +$resizestep
+hc keybind $Mod-Control-Up      resize up +$resizestep
+hc keybind $Mod-Control-Right   resize right +$resizestep
+hc keybind $Mod-a ~/.config/herbstluftwm/swap.sh auto
+hc set focus_follows_mouse 1 
+
+
+# tags
+tag_names=("web" "files" "media" "other")
+tag_keys=( {1..4} 0 )
+
+hc rename default "${tag_names[0]}" || true
+for i in ${!tag_names[@]} ; do
+    hc add "${tag_names[$i]}"
+    key="${tag_keys[$i]}"
+    if ! [ -z "$key" ] ; then
+        hc keybind "$Mod-$key" use_index "$i"
+        hc keybind "$Mod-Shift-$key" move_index "$i"
+    fi
+done
+
+
+
+# theme
+hc attr theme.tiling.reset 1
+hc attr theme.floating.reset 1
+hc set frame_border_active_color '#dc9db7'
+hc set frame_border_normal_color '#101010'
+hc set frame_bg_normal_color '#565656'
+hc set frame_bg_active_color '#345F0C'
+hc set frame_border_width 2
+hc set always_show_frame 1
+hc set frame_bg_transparent 1
+hc set frame_transparent_width 0
+hc set frame_gap 4
+
+hc attr theme.active.color '#afdf87'
+hc attr theme.normal.color '#414242'
+hc attr theme.urgent.color orange
+hc attr theme.inner_width 1
+hc attr theme.inner_color black
+hc attr theme.border_width 3
+hc attr theme.floating.border_width 2
+hc attr theme.floating.outer_width 1
+hc attr theme.floating.outer_color black
+hc attr theme.active.inner_color '#3E4A00'
+hc attr theme.active.outer_color '#3E4A00'
+hc attr theme.background_color '#141414'
+
+hc set window_gap 5
+hc set frame_padding 0
+hc set smart_window_surroundings 1
+hc set smart_frame_surroundings 1
+hc set mouse_recenter_gap 0
+
+# rules
+hc unrule -F
+hc rule class~'(Firefox)' tag=web 
+hc rule focus=on # normally focus new clients
+#hc rule class~'(mpv)' pseudotile=on
+hc rule class~'(MComix)' pseudotile=on
+hc rule class~'(Transmission-remote-gtk)' tag=other
+hc rule class~'(Thunderbird)' tag=other
+hc rule class~'(Skype)' tag=other
+hc rule class~'(feh)' pseudotile=on
+hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
+hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
+hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
+hc unlock
+
+herbstclient set tree_style '╾│ ├└╼─┐'
+
+panel=~/.config/herbstluftwm/panel2.sh
+[ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel2.sh
+for monitor in $(herbstclient list_monitors | cut -d: -f1) ; do
+    # start it on each monitor
+    "$panel" $monitor &
+done
+
+urxvtd &
+xset -b &
+redshift &
+numlockx on &
+autocutsel -fork &
+autocutsel -selection PRIMARY -fork &
+transmission-daemon -f -c /home/hasan/İndirilenler/
+hc split vertical 0.5; hc remove 
