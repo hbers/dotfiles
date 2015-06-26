@@ -36,4 +36,4 @@ herbstclient --idle 2>/dev/null | {
         esac
     done
 } | dzen2 -h 25 -fn '-*-terminus-*-*-*-*-14-*-*-*-*-*-*-*' -ta l -sa l \
-          -w 260 -fg "$dzen_fg" -bg "$dzen_bg" -e 'button3='
+          -w 1060 -fg "$dzen_fg" -bg "$dzen_bg" -e 'button3=;button2=exec:mpc toggle;button4=exec:herbstclient use_index -1;button5=exec:herbstclient use_index +1'
