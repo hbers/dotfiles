@@ -1,0 +1,70 @@
+# MPD DIRECTORY
+
+mpd_music_dir = "/home/hasan/Müzik"
+
+# DISPLAY
+
+user_interface = classic
+playlist_display_mode = columns
+search_engine_display_mode = columns
+header_visibility = yes
+titles_visibility = yes
+display_bitrate = no
+media_library_primary_tag = artist
+playlist_separate_albums = no
+song_columns_list_format = (25)[]{a} (45)[magenta]{t|f:Title} (15)[]{b}
+header_text_scrolling = yes
+playlist_disable_highlight_delay = "1"
+statusbar_visibility = yes
+progressbar_look = "___"
+progressbar_boldness = no
+autocenter_mode = no
+
+# MOUSE
+
+mouse_support = "yes"
+mouse_list_scroll_whole_page = no
+lines_scrolled = 4
+cyclic_scrolling = no
+volume_change_step = 3
+
+# COLORS
+
+color1 = blue
+color2 = yellow
+colors_enabled = yes
+header_window_color = blue
+main_window_color = white
+main_window_highlight_color = white
+empty_tag_color = magenta
+active_window_border = magenta
+window_border_color = blue
+active_column_color = magenta
+statusbar_color = blue
+state_line_color = magenta
+state_flags_color = magenta
+volume_color = blue
+progressbar_color = white
+progressbar_elapsed_color = blue
+discard_colors_if_item_is_selected = no
+
+# VISUALIZER
+
+visualizer_fifo_path = "/tmp/mpd.fifo"
+visualizer_output_name = "my_fifo"
+visualizer_sync_interval = "30" 
+visualizer_in_stereo = "yes"
+visualizer_type = "spectrum" (spectrum/wave)
+visualizer_color = red
+visualizer_look = ●+
+
+# OTHER
+
+space_add_mode = add_remove
+#startup_screen = playlist
+#alternative_header_first_line_format = $b$1$aqqu$/a$9 {%t}|{%f} $1$atqq$/a$9$/b
+#alternative_header_second_line_format = {{$4$b%a$/b$9}{ - $7%b$9}{ ($4%y$9)}}|{%D}
+enable_window_title = yes
+
+now_playing_prefix = "$b"
+now_playing_suffix = "$/b"
