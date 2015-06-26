@@ -1,0 +1,278 @@
+set $mod Mod4
+
+# WORKSPACES 
+
+	set $WS1 1web
+	set $WS2 2files
+	set $WS3 3media
+	set $WS4 4chat
+	set $WS5 5other
+	set $WS6 6
+	set $WS7 7
+	set $WS8 8
+	set $WS9 9
+
+# FONT
+
+	font pango:terminus 10
+
+# COLOURS
+	set $black #2F3033
+	set $darkblack #414242
+	set $red #b60000
+	set $green #79D480
+	set $yellow #BCC965
+	set $blue #7ABFEB
+	set $magenta #997391
+	set $cyan #6AADBA
+	set $white #EFEFEF
+	set $darkwhite #ACACAD
+	set $gray #B6B6B6
+
+# BORDERS
+	client.unfocused      	$darkblack $darkblack $white $darkblack
+	client.focused 			$black     $gray      $black $gray
+	client.focused_inactive $darkblack $darkblack $white $darkblack
+	client.urgent           $red       $red       $white $red
+
+# i3 BAR
+
+bar {
+	status_command python /home/hasan/.i3/i3pystatus
+	strip_workspace_numbers yes
+	height 24
+	position top
+
+	colors {
+		background $black
+		statusline $white
+		separator $white
+
+		focused_workspace  $black $black $white
+		active_workspace   $black $black $darkwhite
+		inactive_workspace $black $black $darkwhite
+		urgent_workspace   $white $white $red
+    	}
+}
+
+
+
+# Float modifier is mod+mouse
+	floating_modifier $mod
+
+# start a terminal
+	bindsym $mod+Return exec urxvtc
+
+# kill focused window
+	bindsym $mod+q kill
+
+# DMENU
+	bindsym $mod+d exec --no-startup-id dmenu_extended_run
+
+# change focus
+	bindsym Control+Left focus left
+	bindsym Control+Down focus down
+	bindsym Control+Up focus up
+	bindsym Control+Right focus right
+	bindsym Mod1+Tab focus right
+	bindsym Mod1+Shift+Tab focus left
+
+# move focused window
+	bindsym $mod+Shift+Left move left
+	bindsym $mod+Shift+Down move down
+	bindsym $mod+Shift+Up move up
+	bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+	bindsym $mod+h split h
+
+# split in vertical orientation
+	bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+	bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+	bindsym $mod+s layout stacking
+	bindsym $mod+w layout tabbed
+	bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+	bindsym $mod+Shift+space floating toggle
+# change focus between tiling / floating windows
+	bindsym Control+space focus mode_toggle
+
+# focus the parent container
+	bindsym $mod+a focus parent
+
+# focus the child container
+	#bindsym $mod+d focus child
+
+# switch to workspace
+	bindsym $mod+1 workspace $WS1
+	bindsym $mod+2 workspace $WS2
+	bindsym $mod+3 workspace $WS3
+	bindsym $mod+4 workspace $WS4
+	bindsym $mod+5 workspace $WS5
+	bindsym $mod+6 workspace $WS6
+	bindsym $mod+7 workspace $WS7
+	bindsym $mod+8 workspace $WS8
+	bindsym $mod+9 workspace $WS9
+
+# move focused container to workspace
+	bindsym $mod+Shift+1 move container to workspace $WS1
+	bindsym $mod+Shift+2 move container to workspace $WS2
+	bindsym $mod+Shift+3 move container to workspace $WS3
+	bindsym $mod+Shift+4 move container to workspace $WS4
+	bindsym $mod+Shift+5 move container to workspace $WS5
+	bindsym $mod+Shift+6 move container to workspace $WS6
+	bindsym $mod+Shift+7 move container to workspace $WS7
+	bindsym $mod+Shift+8 move container to workspace $WS8
+	bindsym $mod+Shift+9 move container to workspace $WS9
+
+# reload the configuration file
+	bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+	bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+	bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'i3 oturumundan çıkmak istiyor musunuz?' -b 'Evet' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+
+        bindsym Left resize shrink width 2 px or 2 ppt
+		bindsym Shift+Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 2 px or 2 ppt
+		bindsym Shift+Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 2 px or 2 ppt
+		bindsym Shift+Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 2 px or 2 ppt
+		bindsym Shift+Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+	bindsym $mod+r mode "resize"
+
+
+# WALLPAPER
+
+	exec --no-startup-id feh --bg-scale /home/hasan/Belgeler/Wallpapers/1418441627573.jpg
+
+# STARTUP APPLICATIONS
+
+#	exec --no-startup-id compton -b
+	exec --no-startup-id xset -b
+	exec --no-startup-id redshift
+	exec --no-startup-id numlockx on
+	exec --no-startup-id autocutsel -fork
+	exec --no-startup-id autocutsel -selection PRIMARY -fork
+#exec --no-startup-id pcmanfm -d
+	exec --no-startup-id urxvtd --quiet --opendisplay --fork
+	exec --no-startup-id transmission-daemon -f -c /home/hasan/İndirilenler/
+
+### CUSTOM KEYBINDINGS
+
+# SHORTCUTS
+
+	bindsym Control+1 exec firefox
+	bindsym Control+2 exec pcmanfm
+	bindsym Control+3 exec urxvt -e ncmpcpp 
+	bindsym Control+4 exec skype
+	bindsym Control+5 exec transmission-remote-gtk 
+	bindsym Control+6 exec urxvt -e trackma-curses
+	bindsym $mod+End exec poweroff
+	bindsym $mod+0xff50 exec --no-startup-id systemctl suspend
+	bindsym $mod+c exec compton -b
+	bindsym $mod+g exec pkill compton
+	bindsym $mod+Tab workspace next
+	bindsym $mod+Shift+Tab workspace prev
+	bindsym $mod+Left workspace prev
+	bindsym $mod+Right workspace next
+	bindsym $mod+l exec redshift
+	bindsym $mod+Shift+l exec pkill redshift
+	bindsym Control+S exec "scrot ~/Belgeler/Other/Screenshot%Y-%m-%d%m%S.png"
+
+# AUDIO
+
+	bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+
+	bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%-
+	bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle
+	bindsym XF86AudioPlay exec --no-startup-id mpc play
+	bindsym XF86AudioStop exec --no-startup-id mpc pause
+	bindsym XF86AudioPrev exec --no-startup-id mpc prev
+	bindsym XF86AudioNext exec --no-startup-id mpc next
+
+
+# WORKSPACE EXCEPTIONS	
+ 	assign [class="^Firefox$"] → 1web
+	assign [class="^Trackma-gtk$"] → 3media
+#	assign [class="^PPSSPP$"] → 3media
+#	assign [class="^retroarch$"] → 3media
+	assign [class="^Skype$"] → 4chat
+	assign [class="^Thunderbird$"] → 5other
+	assign [class="^Transmission-remote-gtk$"] → 5other
+#	exec --no-startup-id xset s 900 900
+	for_window [window_role="pop-up"] floating enable
+	for_window [window_role="task_dialog"] floating enable
+	for_window [class="Trackma-gtk"] floating enable
+	for_window [class="mpv"] floating enable
+#	for_window [class="Steam"] floating enable	
+#	for_window [class="Catfish"] floating enable
+	for_window [class="feh"] floating enable
+#	for_window [class="Transmission-gtk"] floating enable
+	#workspace_auto_back_and_forth yes
+#	for_window [class="VirtualBox"] floating enable
+	for_window [class="MComix"] floating enable
+
+# OTHER
+
+	bindsym $mod+x [urgent=latest] focus
+	new_window pixel 2
+	new_float 1pixel
+	bindsym $mod+t border pixel 2
+	bindsym $mod+y border 1pixel
+	bindsym $mod+u border pixel 3
+
+# GAPS
+
+gaps inner 13
+gaps outer 1
+
+set $mode_gaps Gaps: (1) outer, (2) inner
+set $mode_gaps_outer Outer Gaps: 1|2|0 (local), Shift + 1|-|0 (global)
+set $mode_gaps_inner Inner Gaps: 1|2|0 (local), Shift + 2|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+mode "$mode_gaps" {
+	bindsym 1      mode "$mode_gaps_outer"
+	bindsym 2      mode "$mode_gaps_inner"
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+	bindsym 1  gaps inner current plus 5
+	bindsym 2 gaps inner current minus 5
+	bindsym 0     gaps inner current set 0
+
+	bindsym Shift+1  gaps inner all plus 5
+	bindsym Shift+2 gaps inner all minus 5
+bindsym Shift+0     gaps inner all set 0
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+	bindsym 1  gaps outer current plus 5
+	bindsym 2 gaps outer current minus 5
+	bindsym 0     gaps outer current set 0
+
+	bindsym Shift+1  gaps outer all plus 5
+	bindsym Shift+2 gaps outer all minus 5
+	bindsym Shift+0     gaps outer all set 0
+
+bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
