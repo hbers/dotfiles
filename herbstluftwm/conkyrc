@@ -1,6 +1,6 @@
 # Florian Bruhin <me@the-compiler.org>
 use_xft yes
-xftfont Droid Sans Fallback:size=11
+xftfont Terminus\-ja:style=Regular:size=12
 override_utf8_locale yes
  
 update_interval 1
@@ -8,25 +8,21 @@ total_run_times 0
  
 own_window yes
 own_window_type panel
-own_window_hints 
  
 border_inner_margin 0
-border_outer_margin 4
+border_outer_margin 6
 draw_borders no
 draw_graph_borders no
  
-background no
+background yes
  
 # Eliminate flickering
 double_buffer yes 
-minimum_size 1660 8
-maximum_width 1660
+minimum_size 800 8
+maximum_width 800
  
-# Use KiB/MiB/... instead of just bytes
 format_human_readable yes
-# Print used memory with buffers
 no_buffers no
-# Display k, G, ... instead of kiB, GiB, ...
 short_units yes
 default_color ffffff
 own_window_colour 1c1c1c
@@ -41,9 +37,9 @@ gap_y 0
  
 color0 d0d0d0
 color1 afdf87
-color2 dc9db7
+color2 EFD2DE
 color3 aba742
 TEXT
-${alignr}${if_mpd_playing}${color1}[${mpd_status}] ${color2}${mpd_smart}${color1} |${font}${else}${endif}\
+${alignr}${if_mpd_playing}${color1}[${mpd_status}] ${color2}${scroll 45 ${mpd_smart}}${color1} |${font}${else}${endif}\
 ${alignr}${color1} Vol: ${color2}${exec amixer get Master -M | grep -oE "[[:digit:]]*%"}\
 ${alignr} ${color1}| Date ${color2}${time %d/%m/%y}${color1} | Time ${color2}${time %H:%M} 
