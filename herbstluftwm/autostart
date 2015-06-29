@@ -25,12 +25,14 @@ hc keybind $Mod-d spawn dmenu_extended_run
 hc keybind XF86AudioRaiseVolume spawn amixer set Master 5%+
 hc keybind XF86AudioLowerVolume spawn amixer set Master 5%-
 hc keybind XF86AudioMute spawn amixer -q set Master toggle
-hc keybind XF86AudioPlay spawn mpc play
-hc keybind XF86AudioStop spawn mpc pause
+hc keybind XF86AudioPlay spawn mpc toggle
+hc keybind XF86AudioStop spawn mpc stop
 hc keybind XF86AudioPrev spawn mpc prev
 hc keybind XF86AudioNext spawn mpc next
 hc keybind $Mod+0xff50 spawn systemctl suspend
 hc keybind $Mod+End spawn poweroff
+hc keybind spawn "scrot ~/Belgeler/Other/Screenshot%Y-%m-%d%m%S.png"
+
 #focus
 hc keybind Control-Left  focus left
 hc keybind Control-Down  focus down
@@ -52,7 +54,7 @@ hc keybind $Mod-Tab spawn ~/.config/herbstluftwm/tagswitch.sh next
 hc keybind $Mod-Shift-Tab spawn ~/.config/herbstluftwm/tagswitch.sh prev
 hc keybind $Mod-Left  use_index -1 --skip-visible
 # layouting
-hc keybind $Mod-Shift-q remove
+hc keybind $Mod-r remove
 hc keybind $Mod-space cycle_layout 1
 hc keybind $Mod-s floating toggle
 hc keybind $Mod-f fullscreen toggle
@@ -83,7 +85,7 @@ hc keybind $Mod-Control-Left    resize left +$resizestep
 hc keybind $Mod-Control-Down    resize down +$resizestep
 hc keybind $Mod-Control-Up      resize up +$resizestep
 hc keybind $Mod-Control-Right   resize right +$resizestep
-hc keybind $Mod-a ~/.config/herbstluftwm/swap.sh auto
+hc keybind $Mod-a spawn ~/.config/herbstluftwm/swap.sh auto
 hc set focus_follows_mouse 1 
 
 
@@ -114,7 +116,7 @@ hc set frame_border_width 2
 hc set always_show_frame 1
 hc set frame_bg_transparent 1
 hc set frame_transparent_width 0
-hc set frame_gap 4
+hc set frame_gap 5
 
 hc attr theme.active.color '#afdf87'
 hc attr theme.normal.color '#414242'
@@ -129,7 +131,7 @@ hc attr theme.active.inner_color '#3E4A00'
 hc attr theme.active.outer_color '#3E4A00'
 hc attr theme.background_color '#141414'
 
-hc set window_gap 5
+hc set window_gap 4
 hc set frame_padding 0
 hc set smart_window_surroundings 1
 hc set smart_frame_surroundings 1
@@ -139,7 +141,7 @@ hc set mouse_recenter_gap 0
 hc unrule -F
 hc rule class~'(Firefox)' tag=web 
 hc rule focus=on # normally focus new clients
-#hc rule class~'(mpv)' pseudotile=on
+hc rule class~'(mpv)' pseudotile=on
 hc rule class~'(MComix)' pseudotile=on
 hc rule class~'(Transmission-remote-gtk)' tag=other
 hc rule class~'(Thunderbird)' tag=other
