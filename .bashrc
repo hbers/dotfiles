@@ -6,6 +6,9 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
+alias mv='mv -v'
+alias cp='cp -v'
+alias grep='grep --color=auto'
 alias anime='trackma-curses'
 alias update='echo yaourt -Syua && yaourt -Syua'
 alias install='yaourt'
@@ -21,7 +24,10 @@ alias subtitle='subberthehut -a --same-name'
 alias df='df -h' 
 alias manga='manga_downloader'
 alias updatedb='sudo updatedb'
+alias hc='herbstclient'
+alias adb-connect='adb connect 192.168.1.128'
+export EDITOR=vim
 shopt -s checkwinsize
 shopt -s autocd
-
+eval $(dircolors -b)
 PS1='[\u@\h \w]\$ '
