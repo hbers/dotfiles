@@ -1,0 +1,45 @@
+# Florian Bruhin <me@the-compiler.org>
+use_xft yes
+xftfont Terminus\-ja:style=Regular:size=12
+override_utf8_locale yes
+ 
+update_interval 1
+total_run_times 0
+ 
+own_window yes
+own_window_type panel
+
+border_inner_margin 0
+border_outer_margin 6
+draw_borders no
+draw_graph_borders no
+ 
+background yes
+ 
+# Eliminate flickering
+double_buffer yes 
+minimum_size 800 8
+maximum_width 800
+ 
+format_human_readable yes
+no_buffers no
+short_units yes
+default_color ffffff
+own_window_colour 1c1c1c
+ 
+use_spacer right
+if_up_strictness address
+pad_percents 2
+ 
+alignment top_right
+gap_x 0
+gap_y 0
+ 
+color0 d0d0d0
+color1 afdf87
+color2 EFD2DE
+color3 aba742
+TEXT
+${alignr}${if_mpd_playing}${color1}[${mpd_status}] ${color2}${scroll 40 0 ${mpd_smart}}${color1} |${else}${endif}\
+${alignr}${color1} Vol: ${color2}${exec amixer get Master -M | grep -oE "[[:digit:]]*%"}\
+${alignr} ${color1}| Date ${color2}${time %d/%m/%y}${color1} | Time ${color2}${time %H:%M} 

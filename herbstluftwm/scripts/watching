@@ -1,0 +1,4 @@
+web: (split horizontal:0.450000:1 (clients vertical:0 0x160007d) (split vertical:0.430000:0 (clients vertical:0 0xc00009) (clients vertical:0 0x1c00002)))
+files: (clients horizontal:0)
+media: (clients horizontal:0)
+other: (clients horizontal:0)
