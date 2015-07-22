@@ -4,6 +4,10 @@ set input-meta on
 set convert-meta off
 set output-meta on
 set show-all-if-ambiguous on
+set editing-mode vi
+set completion-ignore-case on
+set completion-prefix-display-length 2
+set show-mode-in-prompt on
 
 $if mode=emacs
 "\e[1~": beginning-of-line
@@ -25,16 +29,15 @@ $endif
 $if mode=vi
 
 set keymap vi-command
-# these are for vi-command mode
-"\e[A": history-search-backward            # arrow up
-"\e[B": history-search-forward             # arrow down
-"\ep": yank-last-arg                       # bind to Alt-p
-Control-l: clear-screen
+"\e[A": history-search-backward            
+"\e[B": history-search-forward            
+Control-r: clear-screen
 
 set keymap vi-insert
-# these are for vi-insert mode
 "\e[A": history-search-backward
 "\e[B": history-search-forward
-"\ep": yank-last-arg
-Control-l: clear-screen
+Control-j: menu-complete
+Control-k: menu-complete-backward
+Control-r: clear-screen
+"jj": vi-movement-mode
 $endif

@@ -12,17 +12,23 @@ set smartcase		"Override the ignorecase option if the search pattern contains up
 set backupdir=~/.vim/backup/
 set directory=~/.vim/backup/
 set backspace=indent,eol,start
+set number 
 
 map <C-T> :tabnew<CR>:edit 
 map <C-O> :tabfind 
 map <S-Tab> gt
+nmap <C-N> :set invnumber<CR>
+imap jj <esc>
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+inoremap <Up> <NOP>
+inoremap <Down> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
 
 hi Search ctermbg=Blue
 hi Search ctermfg=White
+hi LineNr ctermfg=blue "ctermbg=black
 
-if has('gui_running')
-        colorscheme codeschool
-		set guioptions=T
-	else
-		set number
-	endif

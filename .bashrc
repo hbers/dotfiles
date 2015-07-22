@@ -8,7 +8,7 @@
 alias ls='ls --color=auto'
 alias mv='mv -v'
 alias cp='cp -v'
-alias grep='grep --color=auto'
+alias grep='grep --color=auto -i'
 alias anime='trackma-curses'
 alias update='echo yaourt -Syua && yaourt -Syua'
 alias install='yaourt'
@@ -26,6 +26,9 @@ alias manga='manga_downloader'
 alias updatedb='sudo updatedb'
 alias hc='herbstclient'
 alias adb-connect='adb connect 192.168.1.128'
+alias feh='feh_browser'
+alias torrent='transmission-remote-cli'
+alias radio='mpc current >> Belgeler/radio'
 export EDITOR=vim
 shopt -s checkwinsize
 shopt -s autocd
