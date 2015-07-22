@@ -25,6 +25,7 @@ done
 
 
 urxvtd &
+mpd &
 xset -b &
 redshift &
 numlockx on &

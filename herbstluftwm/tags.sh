@@ -35,4 +35,4 @@ herbstclient --idle 2>/dev/null | {
         esac
     done
 } | dzen2 -h 24 -fn '-*-terminus-*-*-*-*-14-*-*-*-*-*-*-*' -ta l -sa l \
-          -w 200 -fg "$dzen_fg" -bg "$dzen_bg" -e 'button4=exec:herbstclient spawn ~/.config/herbstluftwm/tagswitch.sh prev;button5=exec:herbstclient spawn ~/.config/herbstluftwm/tagswitch.sh next;button2=exec:mpc toggle;button3=exec mpc prev' 
+          -w 200 -fg "$dzen_fg" -bg "$dzen_bg" -e 'button4=exec:herbstclient spawn ~/.config/herbstluftwm/scripts/tagswitch.sh prev;button5=exec:herbstclient spawn ~/.config/herbstluftwm/scripts/tagswitch.sh next;button2=exec:mpc toggle;button3=exec mpc prev' 

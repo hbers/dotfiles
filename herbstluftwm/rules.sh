@@ -6,7 +6,7 @@ hc() {
 
 hc unrule -F
 hc rule focus=on # normally focus new clients
-hc rule class~'(Firefox)' tag=web 
+hc rule class~'(Firefox)' tag=web index=00
 hc rule class~'(mpv)' index=11
 hc rule class~'(MComix)' pseudotile=on
 hc rule class~'(Thunderbird)' tag=other
