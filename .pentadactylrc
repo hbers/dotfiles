@@ -1,0 +1,13 @@
+colorscheme darkness
+set complete=sblS
+set hintmatching=contains
+set editor="urxvt -e vim"
+set maxitems=12
+map x :bd 
+vmap jj <Esc> 
+imap jj <Esc>
+imap -builtin <C-Tab> gt
+imap -builtin <C-S-Tab> gT
+map -builtin j 3j
+map -builtin k 3k
+"let mapleader=","

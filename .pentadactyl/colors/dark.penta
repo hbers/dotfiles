@@ -1,0 +1,64 @@
+hi StatusLine           color: #ffffff; background: #2F3033; font-size: 12pt;
+hi StatusLineBroken     color: #ffffff; background: #2F3033; font-size: 12pt;
+hi StatusLineSecure     color: #ffffff; background: #2F3033; font-size: 12pt;
+hi StatusLineExtended color: #ffffff; background: #2F3033; font-size: 12pt;
+hi StatusLineNormal color: #ffffff; background: #2F3033; font-size: 12pt;
+hi StatusLineSecure color: #ffffff; background: #2F3033; font-size: 12pt;
+
+hi Normal               color: #afafaf; background: #2F3033;
+hi CmdLine              background: #2F3033; color: #afafaf; font-size: 12pt; font-family: terminus !important
+hi CompDesc font-size: 10pt; color: #ffffff; font-family: terminus; font-weight: normal;
+hi CompIcon             width: 16px; min-width: 16px; display: inline-block; margin-right: .5ex;
+hi CompItem[selected]   background: #666666; color: #afafaf; 
+hi CompLess             text-align: center; height: 0; line-height: .5ex; padding-top: 1ex;
+hi CompMore             text-align: center; height: .5ex; line-height: .5ex; margin-bottom: -.5ex;
+hi CompMsg              font-style: italic; margin-left: 16px;
+hi CompResult width: 45%; overflow: hidden;font-size: 10pt; color: #ffffff; font-family: terminus; font-weight: normal;
+hi CompTitle            color: #ffffff; background: #2F3033; font-weight: bold;
+hi CompTitle>*          padding: 0 .5ex;
+hi Filter               font-weight: bold;color: #c6c6c6;
+hi CompTitleSep height:1px; background-color: #2F3033
+
+" hi Gradient             height: 1px; margin-bottom: -1px; margin-top: -1px;
+" hi GradientLeft         background-color: #00bbff;
+" hi GradientRight        background-color: #222222;
+
+hi FrameIndicator       background-color: #ffffff; opacity: 0.5; z-index: 999; position: fixed; top: 0; bottom: 0; left: 0; right: 0;
+
+hi Bell                 border: 0 none; background-color: #2F3033;
+hi ErrorMsg             color: #ffffff; background: red; font-weight: bold;
+
+
+hi Hint                 font-family: Sans; font-size: 15px; color: #f6e9e9; background-color: #2F3033; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding 1px 2px 1px 2px;
+"hi Hint               	font-family: Sans; font-size: 10px; font-weight: bold; color: white; background-color: #cbcbcb; border: solid 1px LightGray;
+hi HintActive background-color: #8363A6; color: #000000;
+hi HintElem background-color: #cbcbcb;  color: black;
+hi Hint::after          content: attr(number);
+hi HintImage            opacity: .5;
+hi Hint[active] background-color: #8363A6; color: #ffffff; 
+
+hi InfoMsg              color: #afafaf; background: #222222;
+hi Message              white-space: normal; min-width: 100%; padding-left: 2em; text-indent: -2em; display: block;
+hi WarningMsg           color: red; background: #222222;
+hi ModeMsg              color: #afafaf; background: #222222; "CmdLine when Not in Use
+hi MoreMsg              color: #afafaf; background: #222222;
+hi NonText              color: lightblue; min-height: 16px; padding-left: 2px;
+hi Question             color: #ffffff; background: #222222; font-weight: bold;
+hi Function             color: lightgreen; background: #222222;
+hi Number               color: tan; background: #222222
+hi String               color: #222222; background: #2F3033;
+hi Tag                  color: #222222; background: #2F3033;
+hi Title                color: #222222; background: #2F3033; font-weight: bold;
+hi URL                  text-decoration: none; color: lightblue; background: inherit;
+hi URL:hover            text-decoration: underline; cursor: pointer;
+hi LineNr               color: #afafaf; background: #222222;
+hi Object color: #ffffff;
+hi Indicator color: #ffffff;
+hi Null color: CornflowerBlue;
+
+
+
+"style -name statusbar chrome://* <<EOM
+"#status-bar statusbarpanel { padding: 0 1px !important; }
+"statusbarpanel > * { margin: 0 !important; padding: 0 2px 0 0 !important; }
+"EOM
