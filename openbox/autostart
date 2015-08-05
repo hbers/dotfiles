@@ -7,5 +7,4 @@ autocutsel -fork &
 tint2 &
 transmission-daemon -f -c /home/hasan/İndirilenler/ &
 pnmixer &
-mpd-notification &
 feh --bg-scale ~/Belgeler/Wallpapers/new/wallhaven-192038.jpg 
