@@ -1,24 +1,23 @@
-<?xml version="1.0"?>
-<openbox_config xmlns="http://openbox.org/3.4/rc" xmlns:xi="http://www.w3.org/2001/XInclude">
+<?xml version="1.0" ?><openbox_config xmlns="http://openbox.org/3.4/rc" xmlns:xi="http://www.w3.org/2001/XInclude">
   <resistance>
     <strength>60</strength>
-    <screen_edge_strength>80</screen_edge_strength>
+    <screen_edge_strength>100</screen_edge_strength>
   </resistance>
   <focus>
     <focusNew>yes</focusNew>
     <!-- always try to focus new windows when they appear. other rules do
        apply -->
-    <followMouse>yes</followMouse>
+    <followMouse>no</followMouse>
     <!-- move focus to a window when you move the mouse into it -->
     <focusLast>yes</focusLast>
     <!-- focus the last used window when changing desktops, instead of the one
        under the mouse pointer. when followMouse is enabled -->
     <underMouse>no</underMouse>
     <!-- move focus under the mouse, even when the mouse is not moving -->
-    <focusDelay>100</focusDelay>
+    <focusDelay>260</focusDelay>
     <!-- when followMouse is enabled, the mouse must be inside the window for
        this many milliseconds (1000 = 1 sec) before moving focus to it -->
-    <raiseOnFocus>yes</raiseOnFocus>
+    <raiseOnFocus>no</raiseOnFocus>
     <!-- when followMouse is enabled, and a window is given focus by moving the
        mouse into it, also raise the window -->
   </focus>
@@ -118,7 +117,7 @@
 
        use obconf if you want to change these without having to log out
        and back in -->
-    <number>3</number>
+    <number>2</number>
     <firstdesk>1</firstdesk>
     <names>
       <!-- set names up here if you want to, like this:
@@ -126,7 +125,7 @@
     <name>desktop 2</name>
     -->
     </names>
-    <popupTime>715</popupTime>
+    <popupTime>370</popupTime>
     <!-- The number of milliseconds to show the popup for when switching
        desktops.  Set this to 0 to disable the popup. -->
   </desktops>
@@ -151,7 +150,7 @@
      Many programs reserve space automatically, but you can use this in other
      cases. -->
   <margins>
-    <top>26</top>
+    <top>25</top>
     <bottom>0</bottom>
     <left>0</left>
     <right>0</right>
@@ -195,20 +194,20 @@
     </keybind>
     <keybind key="S-W-1">
       <action name="SendToDesktop">
-        <to>left</to>
-        <wrap>1</wrap>
+        <to>1</to>
+        <follow>no</follow>
       </action>
     </keybind>
     <keybind key="S-W-2">
       <action name="SendToDesktop">
         <to>2</to>
-        <wrap>no</wrap>
+        <follow>no</follow>
       </action>
     </keybind>
     <keybind key="S-W-3">
       <action name="SendToDesktop">
         <to>3</to>
-        <wrap>no</wrap>
+        <follow>no</follow>
       </action>
     </keybind>
     <keybind key="W-1">
@@ -227,10 +226,23 @@
       </action>
     </keybind>
     <keybind key="W-t">
+      <action name="ToggleAlwaysOnTop"/>
+    </keybind>
+    <keybind key="W-S-t">
       <action name="ToggleShowDesktop"/>
     </keybind>
     <keybind key="W-q">
       <action name="Close"/>
+    </keybind>
+    <keybind key="W-S-r">
+      <action name="Execute">
+        <command>openbox --reconfigure</command>
+      </action>
+    </keybind>
+    <keybind key="W-S-e">
+      <action name="Execute">
+        <command>openbox --exit</command>
+      </action>
     </keybind>
     <keybind key="W-Escape">
       <action name="Lower"/>
@@ -248,19 +260,13 @@
     <keybind key="A-S-Tab">
       <action name="PreviousWindow"/>
     </keybind>
-    <keybind key="C-A-Tab">
-      <action name="NextWindow">
-        <panels>yes</panels>
-        <desktop>yes</desktop>
-      </action>
-    </keybind>
     <keybind key="W-Tab">
       <action name="DesktopNext"/>
     </keybind>
-    <keybind key="C-Tab">
+    <keybind key="W-S-Tab">
       <action name="DesktopPrevious"/>
-  </keybind>
-	<keybind key="C-Right">
+    </keybind>
+    <keybind key="C-Right">
       <action name="DirectionalCycleWindows">
         <direction>right</direction>
       </action>
@@ -276,6 +282,26 @@
       </action>
     </keybind>
     <keybind key="C-Down">
+      <action name="DirectionalCycleWindows">
+        <direction>down</direction>
+      </action>
+    </keybind>
+    <keybind key="C-l">
+      <action name="DirectionalCycleWindows">
+        <direction>right</direction>
+      </action>
+    </keybind>
+    <keybind key="C-h">
+      <action name="DirectionalCycleWindows">
+        <direction>left</direction>
+      </action>
+    </keybind>
+    <keybind key="C-k">
+      <action name="DirectionalCycleWindows">
+        <direction>up</direction>
+      </action>
+    </keybind>
+    <keybind key="C-j">
       <action name="DirectionalCycleWindows">
         <direction>down</direction>
       </action>
@@ -364,26 +390,111 @@
         <command>amixer set Master 5%-</command>
       </action>
     </keybind>
-    <keybind key="W-f">
-      <action name="ToggleMaximizeFull"/>
+    <keybind key="XF86AudioMute">
+      <action name="Execute">
+        <command>amixer -q set Master toggle</command>
+      </action>
     </keybind>
-    <keybind key="S-W-f">
+    <keybind key="W-f">
+      <action name="ToggleMaximize"/>
+    </keybind>
+    <keybind key="W-S-f">
+      <action name="ToggleFullScreen"/>
+    </keybind>
+    <keybind key="A-f">
       <action name="ToggleMaximizeVert"/>
     </keybind>
-	<keybind key="W-S-Up">
-		<action name="MoveResizeTo"><y>0</y>
+    <keybind key="W-S-Up">
+      <action name="MoveResizeTo">
+        <y>0</y>
+      </action>
+    </keybind>
+    <keybind key="W-S-Right">
+      <action name="MoveResizeTo">
+        <x>-0</x>
+      </action>
+    </keybind>
+    <keybind key="W-S-Down">
+      <action name="MoveResizeTo">
+        <y>-0</y>
+      </action>
+    </keybind>
+    <keybind key="W-S-Left">
+      <action name="MoveResizeTo">
+        <x>0</x>
+      </action>
+    </keybind>
+    <keybind key="W-S-k">
+      <action name="MoveResizeTo">
+        <y>0</y>
+      </action>
+    </keybind>
+    <keybind key="W-S-l">
+      <action name="MoveResizeTo">
+        <x>-0</x>
+      </action>
+    </keybind>
+    <keybind key="W-S-j">
+      <action name="MoveResizeTo">
+        <y>-0</y>
+      </action>
+    </keybind>
+    <keybind key="W-S-h">
+      <action name="MoveResizeTo">
+        <x>0</x>
+      </action>
+    </keybind>
+    <keybind key="W-b">
+      <action name="ToggleDecorations"/>
+    </keybind>
+    <keybind key="W-h">
+      <action name="UnmaximizeFull"/>
+      <action name="MaximizeVert"/>
+      <action name="MoveResizeTo">
+        <x>0</x>
+        <y>0</y>
+        <width>50%</width>
+        <height>100%</height>
+      </action>
+    </keybind>
+    <keybind key="W-l">
+      <action name="UnmaximizeFull"/>
+      <action name="MaximizeVert"/>
+      <action name="MoveResizeTo">
+        <x>-0</x>
+        <y>0</y>
+        <width>50%</width>
+        <height>100%</height>
+      </action>
+    </keybind>
+    <keybind key="W-S-space">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <x>center</x>
+        <y>center</y>
+      </action>
+    </keybind>
+    <keybind key="W-j">
+      <action name="Iconify"/>
+    </keybind>
+	<keybind key="W-C-j">
+		<action name="GrowToEdge">
+		<direction>south</direction>
+	</action>
+	</keybind>
+	<keybind key="W-C-k">
+		<action name="GrowToEdge">
+			<direction>north</direction>
 		</action>
 	</keybind>
-	<keybind key="W-S-Right">
-		<action name="MoveResizeTo"><x>-0</x>
+	<keybind key="W-C-h">
+		<action name="GrowToEdge">
+			<direction>west</direction>
 		</action>
 	</keybind>
-	<keybind key="W-S-Down">
-		<action name="MoveResizeTo"><y>-0</y>
-		</action>
-	</keybind>
-	<keybind key="W-S-Left">
-		<action name="MoveResizeTo"><x>0</x>
+	<keybind key="W-C-l">
+		<action name="GrowToEdge">
+			<direction>east</direction>
 		</action>
 	</keybind>
   </keyboard>
@@ -419,9 +530,10 @@
         <action name="Resize"/>
       </mousebind>
       <mousebind action="Press" button="W-Middle">
-        <action name="Lower"/>
-        <action name="FocusToBottom"/>
-        <action name="Unfocus"/>
+        <action name="Iconify"/>
+      </mousebind>
+      <mousebind action="Press" button="W-S-Middle">
+        <action name="ToggleAlwaysOnTop"/>
       </mousebind>
       <mousebind action="Click" button="A-Up">
         <action name="GoToDesktop">
@@ -841,5 +953,6 @@
 
   # end of the example
 -->
-  </applications>
+  
+</applications>
 </openbox_config>
