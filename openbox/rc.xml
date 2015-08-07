@@ -39,8 +39,8 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Zukiwi-ob</name>
-    <titleLayout>NLMC</titleLayout>
+    <name>NERV-OB</name>
+    <titleLayout>LMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
       N: window icon
@@ -225,11 +225,8 @@
         <to>3</to>
       </action>
     </keybind>
-    <keybind key="W-t">
+    <keybind key="W-a">
       <action name="ToggleAlwaysOnTop"/>
-    </keybind>
-    <keybind key="W-S-t">
-      <action name="ToggleShowDesktop"/>
     </keybind>
     <keybind key="W-q">
       <action name="Close"/>
@@ -254,6 +251,11 @@
         <menu>client-menu</menu>
       </action>
     </keybind>
+	<keybind key="W-m">
+		<action name="ShowMenu">
+			<menu>root-menu</menu>
+		</action>
+	</keybind>
     <keybind key="A-Tab">
       <action name="NextWindow"/>
     </keybind>
@@ -601,8 +603,7 @@
         <action name="Unshade"/>
       </mousebind>
       <mousebind action="Press" button="Middle">
-        <action name="Lower"/>
-        <action name="FocusToBottom"/>
+        <action name="Iconify"/>
         <action name="Unfocus"/>
       </mousebind>
       <mousebind action="Press" button="Right">
@@ -859,6 +860,9 @@
     <!-- show the manage desktops section in the client-list-(combined-)menu -->
   </menu>
   <applications>
+	<application class="mpv">
+	<layer>above</layer>
+	</application>
     <!--
   # this is an example with comments through out. use these to make your
   # own rules, but without the comments of course.
@@ -886,7 +890,8 @@
   # when multiple rules match a window, they will all be applied, in the
   # order that they appear in this list
 
-
+	
+	
     # each rule element can be left out or set to 'default' to specify to not 
     # change that attribute of the window
 
