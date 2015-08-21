@@ -1,4 +1,3 @@
-urxvtd &
 mpd &
 xset -b &
 redshift &
@@ -7,4 +6,4 @@ autocutsel -fork &
 tint2 &
 transmission-daemon -f -c /home/hasan/İndirilenler/ &
 pnmixer &
-feh --bg-scale ~/Belgeler/Wallpapers/new/wallhaven-192038.jpg 
+feh --bg-scale ~/Belgeler/Wallpapers/new/1436313049294.jpg

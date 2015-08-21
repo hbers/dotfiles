@@ -3,12 +3,12 @@
 <menu id="root-menu" label="Openbox 3">
 	<separator label="Menu"/>
 <menu id="İnternet" label="İnternet">
-	 <item label="Firefox" icon="/usr/share/icons/Faenza/apps/scalable/firefox.svg">
-       <action name="Execute"><execute>firefox </execute></action>
+	<item label="Icecat" icon="/usr/share/pixmaps/icecat.png">
+       <action name="Execute"><execute>icecat </execute></action>
      </item>
-	 <item label="Skype" icon="/usr/share/icons/Faenza/apps/scalable/skype.svg">
-       <action name="Execute"><execute>apulse skype </execute></action>
-     </item>
+	 <item label="Telegram" icon="/usr/share/pixmaps/telegram.png">
+		 <action name="Execute"><execute>telegram</execute></action>
+	 </item>
 	 <item label="Thunderbird" icon="/usr/share/icons/Faenza/apps/scalable/thunderbird.svg">
        <action name="Execute"><execute>thunderbird </execute></action>
      </item>
@@ -18,15 +18,15 @@
        <action name="Execute"><execute>file-roller </execute></action>
      </item>
 	 <item label="Redshift" icon="/usr/share/icons/hicolor/scalable/apps/redshift.svg">
-       <action name="Execute"><execute>redshift-gtk</execute></action>
+		 <action name="Execute"><execute>~/.config/redshifttoggle.sh</execute></action>
      </item>
 	 <item label="Vim" icon="/usr/share/icons/Faenza/apps/scalable/vim.svg">
-       <action name="Execute"><execute>urxvtc -e vim </execute></action>
+       <action name="Execute"><execute>urxvt -e vim </execute></action>
      </item>
  </menu> <!-- Donatılar -->
  <menu id="Grafik" label="Grafik">
       <item label="Feh" icon="///usr/share/feh/images/feh.png">
-       <action name="Execute"><execute>feh_browser  </execute></action>
+       <action name="Execute"><execute>feh </execute></action>
      </item>
       <item label="MComix" icon="/usr/share/icons/hicolor/16x16/apps/mcomix.png">
        <action name="Execute"><execute>mcomix </execute></action>
@@ -71,21 +71,27 @@
        <action name="Execute"><execute>mpv --profile=pseudo-gui -- </execute></action>
      </item>
 	 <item label="ncmpcpp" icon="/usr/share/icons/Faenza/apps/scalable/terminal.svg">
-		 <action name="Execute"><execute>urxvtc -e ncmpcpp</execute></action>
+		 <action name="Execute"><execute>urxvt -e ncmpcpp</execute></action>
+	 </item>
+	 <item label="Trackma" icon="/usr/share/pixmaps/trackma.png">
+		 <action name="Execute"><execute>trackma-gtk</execute></action>
 	 </item>
  </menu> <!-- Ses ve Video -->
  <menu id="Sistem Araçları" label="Sistem Araçları">
-	 <item label="PCManFM" icon="/usr/share/icons/Faenza/apps/scalable/file-manager.svg">
-       <action name="Execute"><execute>pcmanfm </execute></action>
+	 <item label="SpaceFM" icon="/usr/share/icons/hicolor/48x48/apps/spacefm-48-cube-blue.png">
+       <action name="Execute"><execute>spacefm </execute></action>
      </item>
+	 <item label="ranger" icon="/usr/share/icons/Faenza/apps/scalable/terminal.svg">
+		 <action name="Execute"><execute>urxvt -e ranger</execute></action>
+	 </item>
 	 <item label="GParted" icon="/usr/share/icons/Faenza/apps/16/gparted.png">
        <action name="Execute"><execute>/usr/bin/gparted_polkit </execute></action>
      </item>
       <item label="Htop" icon="/usr/share/pixmaps/htop.png">
-       <action name="Execute"><execute>urxvtc -e htop</execute></action>
+       <action name="Execute"><execute>urxvt -e htop</execute></action>
      </item>
 	 <item label="urxvt" icon="/usr/share/icons/Faenza/apps/scalable/terminal.svg">
-       <action name="Execute"><execute>urxvtc</execute></action>
+       <action name="Execute"><execute>urxvt</execute></action>
      </item>
  </menu>
  	<menu id="system-menu" label="Openbox">

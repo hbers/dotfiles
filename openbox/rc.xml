@@ -1,4 +1,5 @@
-<?xml version="1.0" ?><openbox_config xmlns="http://openbox.org/3.4/rc" xmlns:xi="http://www.w3.org/2001/XInclude">
+<?xml version="1.0"?>
+<openbox_config xmlns="http://openbox.org/3.4/rc" xmlns:xi="http://www.w3.org/2001/XInclude">
   <resistance>
     <strength>60</strength>
     <screen_edge_strength>100</screen_edge_strength>
@@ -251,11 +252,16 @@
         <menu>client-menu</menu>
       </action>
     </keybind>
-	<keybind key="W-m">
-		<action name="ShowMenu">
-			<menu>root-menu</menu>
-		</action>
-	</keybind>
+    <keybind key="W-m">
+      <action name="ShowMenu">
+        <menu>root-menu</menu>
+      </action>
+    </keybind>
+    <keybind key="W-o">
+      <action name="ShowMenu">
+        <menu>client-list-combined-menu</menu>
+      </action>
+    </keybind>
     <keybind key="A-Tab">
       <action name="NextWindow"/>
     </keybind>
@@ -288,22 +294,22 @@
         <direction>down</direction>
       </action>
     </keybind>
-    <keybind key="C-l">
+    <keybind key="W-l">
       <action name="DirectionalCycleWindows">
         <direction>right</direction>
       </action>
     </keybind>
-    <keybind key="C-h">
+    <keybind key="W-h">
       <action name="DirectionalCycleWindows">
         <direction>left</direction>
       </action>
     </keybind>
-    <keybind key="C-k">
+    <keybind key="W-k">
       <action name="DirectionalCycleWindows">
         <direction>up</direction>
       </action>
     </keybind>
-    <keybind key="C-j">
+    <keybind key="W-j">
       <action name="DirectionalCycleWindows">
         <direction>down</direction>
       </action>
@@ -311,40 +317,39 @@
     <keybind key="W-d">
       <action name="Execute">
         <command>dmenu_extended_run</command>
-        <startupnotify>
-          <enabled>yes</enabled>
-          <name>dmenuex</name>
-        </startupnotify>
       </action>
     </keybind>
     <keybind key="C-1">
       <action name="Execute">
-        <command>firefox</command>
+        <command>icecat</command>
       </action>
     </keybind>
     <keybind key="C-2">
       <action name="Execute">
-        <command>urxvtc -e ranger</command>
+        <command>spacefm</command>
       </action>
     </keybind>
     <keybind key="C-3">
       <action name="Execute">
-        <command>urxvtc -e ncmpcpp</command>
+        <command>urxvt -e ncmpcpp</command>
       </action>
     </keybind>
     <keybind key="C-4">
       <action name="Execute">
-        <command>apulse skype</command>
+        <command>thunderbird</command>
       </action>
     </keybind>
     <keybind key="C-5">
       <action name="Execute">
-        <command>urxvtc -e transmission-remote-cli</command>
+        <command>urxvt -e transmission-remote-cli</command>
       </action>
     </keybind>
     <keybind key="W-Insert">
       <action name="Execute">
         <command>scrot</command>
+      </action>
+      <action name="Execute">
+        <command>notify-send "Screenshot al&#x131;nd&#x131;"</command>
       </action>
     </keybind>
     <keybind key="W-Home">
@@ -359,7 +364,7 @@
     </keybind>
     <keybind key="W-Return">
       <action name="Execute">
-        <command>urxvtc</command>
+        <command>urxvt</command>
       </action>
     </keybind>
     <keybind key="XF86AudioPlay">
@@ -386,11 +391,17 @@
       <action name="Execute">
         <command>amixer set Master 5%+</command>
       </action>
+	  <action name="Execute">
+		  <command>~/.config/volumenotify.sh</command>
+	  </action>
     </keybind>
     <keybind key="XF86AudioLowerVolume">
       <action name="Execute">
         <command>amixer set Master 5%-</command>
       </action>
+	  <action name="Execute">
+		  <command>~/.config/volumenotify.sh</command>
+	  </action>
     </keybind>
     <keybind key="XF86AudioMute">
       <action name="Execute">
@@ -427,29 +438,29 @@
       </action>
     </keybind>
     <keybind key="W-S-k">
-      <action name="MoveResizeTo">
-        <y>0</y>
+      <action name="MoveToEdge">
+        <direction>north</direction>
       </action>
     </keybind>
     <keybind key="W-S-l">
-      <action name="MoveResizeTo">
-        <x>-0</x>
+      <action name="MoveToEdge">
+        <direction>east</direction>
       </action>
     </keybind>
     <keybind key="W-S-j">
-      <action name="MoveResizeTo">
-        <y>-0</y>
+      <action name="MoveToEdge">
+        <direction>south</direction>
       </action>
     </keybind>
     <keybind key="W-S-h">
-      <action name="MoveResizeTo">
-        <x>0</x>
+      <action name="MoveToEdge">
+        <direction>west</direction>
       </action>
     </keybind>
     <keybind key="W-b">
       <action name="ToggleDecorations"/>
     </keybind>
-    <keybind key="W-h">
+    <keybind key="C-S-h">
       <action name="UnmaximizeFull"/>
       <action name="MaximizeVert"/>
       <action name="MoveResizeTo">
@@ -459,7 +470,7 @@
         <height>100%</height>
       </action>
     </keybind>
-    <keybind key="W-l">
+    <keybind key="C-S-l">
       <action name="UnmaximizeFull"/>
       <action name="MaximizeVert"/>
       <action name="MoveResizeTo">
@@ -479,26 +490,42 @@
     <keybind key="W-j">
       <action name="Iconify"/>
     </keybind>
-	<keybind key="W-C-j">
-		<action name="GrowToEdge">
-		<direction>south</direction>
-	</action>
-	</keybind>
-	<keybind key="W-C-k">
-		<action name="GrowToEdge">
-			<direction>north</direction>
-		</action>
-	</keybind>
-	<keybind key="W-C-h">
-		<action name="GrowToEdge">
-			<direction>west</direction>
-		</action>
-	</keybind>
-	<keybind key="W-C-l">
-		<action name="GrowToEdge">
-			<direction>east</direction>
-		</action>
-	</keybind>
+    <keybind key="W-C-j">
+      <action name="GrowToEdge">
+        <direction>south</direction>
+      </action>
+    </keybind>
+    <keybind key="W-C-k">
+      <action name="GrowToEdge">
+        <direction>north</direction>
+      </action>
+    </keybind>
+    <keybind key="W-C-h">
+      <action name="GrowToEdge">
+        <direction>west</direction>
+      </action>
+    </keybind>
+    <keybind key="W-C-l">
+      <action name="GrowToEdge">
+        <direction>east</direction>
+      </action>
+    </keybind>
+    <keybind key="W-KP_Add">
+      <action name="ResizeRelative">
+        <top>1</top>
+        <left>1</left>
+        <right>1</right>
+        <bottom>1</bottom>
+      </action>
+    </keybind>
+    <keybind key="W-KP_Subtract">
+      <action name="ResizeRelative">
+        <top>-1</top>
+        <left>-1</left>
+        <right>-1</right>
+        <bottom>-1</bottom>
+      </action>
+    </keybind>
   </keyboard>
   <mouse>
     <dragThreshold>1</dragThreshold>
@@ -860,9 +887,16 @@
     <!-- show the manage desktops section in the client-list-(combined-)menu -->
   </menu>
   <applications>
-	<application class="mpv">
-	<layer>above</layer>
-	</application>
+    <application class="mpv">
+      <layer>above</layer>
+      <decor>no</decor>
+    </application>
+    <application class="URxvt">
+      <decor>no</decor>
+    </application>
+    <application class="Telegram">
+      <decor>no</decor>
+    </application>
     <!--
   # this is an example with comments through out. use these to make your
   # own rules, but without the comments of course.
@@ -958,6 +992,5 @@
 
   # end of the example
 -->
-  
-</applications>
+  </applications>
 </openbox_config>
