@@ -1,13 +1,10 @@
--- default keybinding: b
--- add the following to your input.conf to change the default keybinding:
--- keyname script_binding auto_load_subs
 local utils = require 'mp.utils'
 function load_sub_fn()
-    subl = "/usr/bin/subberthehut" -- use 'which subliminal' to find the path
+    subl = "/usr/bin/subdl" -- use 'which subliminal' to find the path
     mp.msg.info("Altyazı aranıyor")
     mp.osd_message("Altyazı aranıyor")
     t = {}
-    t.args = {subl,"--same-name", "--", mp.get_property("path")}
+    t.args = {subl, mp.get_property("path")}
     res = utils.subprocess(t)
     if res.status == 0 then
         mp.commandv("rescan_external_files", "reselect") 
