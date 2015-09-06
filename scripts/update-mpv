@@ -1,0 +1,7 @@
+MPV=~/mpv-git/src/mpv/video/out/x11_common.c 
+yaourt -G mpv-git
+cd mpv-git
+makepkg -o
+sed -i 's/hint->width = RC_W(rc);/hint->width = RC_W(rc) -2;/g' $MPV
+sed -i 's/hint->height = RC_H(rc);/hint->height = RC_H(rc) -1;/g' $MPV
+makepkg -ei
