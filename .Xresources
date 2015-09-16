@@ -33,10 +33,12 @@
 ! bright_white
 *color15: #ffffff
 
-URxvt*font: xft:Terminus:size=12
-URxvt.boldFont: xft:Terminus:size=12
-URxvt.perl-ext-common : default,tabbedex,matcher,font-size
-URxvt.url-launcher: /usr/bin/firefox
+URxvt*font: -*-terminus-medium-*-*-*-14-*-*-*-*-*-*-* 
+URxvt.boldFont: -*-terminus-medium-*-*-*-14-*-*-*-*-*-*-*
+URxvt.geometry: 87x26
+URxvt*iconFile: /usr/share/icons/Faenza/apps/scalable/terminal.svg
+URxvt.perl-ext-common : default,tabbedex,matcher
+URxvt.url-launcher: /usr/bin/palemoon
 URxvt.colorUL: #4682B4
 URxvt.matcher.button  : 1
 !URxvt.letterSpace: -2
@@ -47,9 +49,7 @@ URxvt*.transparent: false
 URxvt*scrollBar: false
 URxvt*cursorBlink: false
 URxvt*jumpScroll: true
-URxvt.scrollTtyOutput: False
-URxvt.scrollWithBuffer: True
-URxvt.scrollTtyKeypress: True
+!URxvt.borderLess: true
 !URxvt tabbedex settings
 URxvt.tabbed.tabbar-fg: 4
 URxvt.tabbed.tabbar-bg: 0
@@ -61,8 +61,8 @@ URxvt.keysym.Control-t: perl:tabbedex:new_tab
 URxvt.keysym.Control-Tab: perl:tabbedex:next_tab
 URxvt.keysym.Control-ISO_Left_Tab: perl:tabbedex:prev_tab
 !URxvt font-size settings
-URxvt.keysym.Control-KP_Add:     font-size:increase
-URxvt.keysym.Control-KP_Subtract:   font-size:decrease
+!URxvt.keysym.Control-KP_Add:     font-size:increase
+!URxvt.keysym.Control-KP_Subtract:   font-size:decrease
 !-- Xft settings -- !
 Xft.lcdfilter: lcddefault
 Xft.dpi:        96

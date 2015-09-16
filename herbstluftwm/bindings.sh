@@ -14,7 +14,7 @@ hc keybind $Mod-Shift-q chain , close_or_remove , remove
 hc keybind $Mod-Return spawn urxvtc
 # custom shortcuts
 hc keybind Control-1 spawn firefox
-hc keybind Control-2 spawn pcmanfm
+hc keybind Control-2 spawn urxvtc -e ranger
 hc keybind Control-3 spawn urxvtc -e ncmpcpp
 hc keybind Control-4 spawn skype
 hc keybind Control-5 spawn urxvtc -e transmission-remote-cli
@@ -52,8 +52,6 @@ hc keybind $Mod-Shift-l     shift right
 # cycle through tags
 hc keybind $Mod-Tab spawn ~/.config/herbstluftwm/scripts/tagswitch.sh next
 hc keybind $Mod-Shift-Tab spawn ~/.config/herbstluftwm/scripts/tagswitch.sh prev
-hc keybind $Mod-Right use_index +1 --skip-visible
-hc keybind $Mod-Left  use_index -1 --skip-visible
 # layouting
 hc keybind $Mod-r remove
 hc keybind $Mod-Shift-space cycle_layout 1
@@ -85,8 +83,8 @@ hc keybind $Mod-Control-Left    resize left +$resizestep
 hc keybind $Mod-Control-Down    resize down +$resizestep
 hc keybind $Mod-Control-Up      resize up +$resizestep
 hc keybind $Mod-Control-Right   resize right +$resizestep
-hc keybind $Mod+KP_Subtract   chain , resize down 0.02 , resize right 0.02
-hc keybind $Mod+KP_Add  chain , resize up 0.02 , resize left 0.02
+hc keybind $Mod+KP_Subtract   chain , resize down 0.01 , resize right 0.01
+hc keybind $Mod+KP_Add  chain , resize up 0.01 , resize left 0.01
 
 tag_names=("web" "files" "media" "other")
 tag_keys=( {1..4} 0 )

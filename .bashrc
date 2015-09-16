@@ -5,6 +5,8 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+export HISTFILESIZE=
+export HISTSIZE=
 export EDITOR=vim
 shopt -s checkwinsize
 shopt -s autocd
@@ -37,3 +39,4 @@ alias wd-fat-mount='sudo mount -t vfat -o umask=000 /dev/sdb2 /media/WD-FAT'
 alias wd-fat-unmount='sudo umount /dev/sdb2'
 alias mtpmount='jmtpfs ~/.cache/mnt'
 alias mtpumount='fusermount -u ~/.cache/mnt'
+alias dotfiles='cd ~/.git/dotfiles'

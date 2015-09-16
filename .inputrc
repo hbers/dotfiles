@@ -36,8 +36,8 @@ Control-r: clear-screen
 set keymap vi-insert
 "\e[A": history-search-backward
 "\e[B": history-search-forward
-Control-j: menu-complete
-Control-k: menu-complete-backward
-Control-r: clear-screen
+Control-f: menu-complete
+Control-b: menu-complete-backward
 "jj": vi-movement-mode
+Control-r: clear-screen
 $endif
