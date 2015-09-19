@@ -1,0 +1,177 @@
+# click on the desktop to get menus
+OnDesktop Mouse1 :HideMenus
+OnDesktop Mouse2 :WorkspaceMenu
+OnDesktop Mouse3 :RootMenu
+
+# scroll on the desktop to change workspaces
+OnDesktop Mouse4 :PrevWorkspace
+OnDesktop Mouse5 :NextWorkspace
+
+# scroll on the toolbar to change current window
+OnToolbar Mouse4 :PrevWindow {static groups} (iconhidden=no)
+OnToolbar Mouse5 :NextWindow {static groups} (iconhidden=no)
+
+# alt + left/right click to move/resize a window
+OnWindow Mod4 Mouse1 :MacroCmd {Raise} {Focus} {StartMoving}
+OnWindowBorder Move1 :StartMoving
+
+OnWindow Mod4 Mouse3 :MacroCmd {Raise} {Focus} {StartResizing NearestCorner}
+OnLeftGrip Move1 :StartResizing bottomleft
+OnRightGrip Move1 :StartResizing bottomright
+
+# alt + middle click to lower the window
+OnWindow Mod4 Mouse2 :Lower
+
+# control-click a window's titlebar and drag to attach windows
+OnTitlebar Control Mouse1 :StartTabbing
+
+# double click on the titlebar to shade
+OnTitlebar Double Mouse1 :Shade
+
+# left click on the titlebar to move the window
+OnTitlebar Mouse1 :MacroCmd {Raise} {Focus} {ActivateTab}
+OnTitlebar Move1  :StartMoving
+
+# middle click on the titlebar to lower
+OnTitlebar Mouse2 :Lower
+
+# right click on the titlebar for a menu of options
+OnTitlebar Mouse3 :WindowMenu
+
+# alt-tab
+Mod1 Tab :PrevWindow {groups} (workspace=[current])
+Mod1 Shift Tab :NextWindow {groups} (workspace=[current])
+
+# cycle through tabs in the current window
+Mod1 Control Tab :NextTab
+Mod1 Shift Control Tab :PrevTab
+
+# go to a specific tab in the current window
+Mod4 1 :Tab 1
+Mod4 2 :Tab 2
+Mod4 3 :Tab 3
+Mod4 4 :Tab 4
+Mod4 5 :Tab 5
+Mod4 6 :Tab 6
+Mod4 7 :Tab 7
+Mod4 8 :Tab 8
+Mod4 9 :Tab 9
+
+# open a terminal
+Mod4 Return :Exec urxvtc.sh
+
+# open a dialog to run programs
+Mod4 d :Exec dmenu_extended_run
+
+# volume settings, using common keycodes
+# if these don't work, use xev to find out your real keycodes
+XF86AudioRaiseVolume :Exec amixer sset Master,0 1+ && ~/.config/volumenotify.sh
+XF86AudioLowerVolume :Exec amixer sset Master,0 1- && ~/.config/volumenotify.sh
+160 :Exec amixer sset Master,0 toggle
+
+# current window commands
+Mod4 q :Close
+Mod4 Shift q :Kill
+Mod4 i :Minimize
+Mod4 f :Maximize
+Mod4 Shift f :Fullscreen
+
+# open the window menu
+Mod4 space :RootMenu
+
+# exit fluxbox
+Mod4 Shift e  :Exit
+
+# change to previous/next workspace
+Mod4 Shift Tab :PrevWorkspace
+Mod4 Tab :NextWorkspace
+
+# send the current window to previous/next workspace
+Mod4 Left :SendToPrevWorkspace
+Mod4 Right :SendToNextWorkspace
+
+# send the current window and follow it to previous/next workspace
+Control Mod4 Left :TakeToPrevWorkspace
+Control Mod4 Right :TakeToNextWorkspace
+
+# change to a specific workspace
+Control F1 :Workspace 1
+Control F2 :Workspace 2
+Control F3 :Workspace 3
+Control F4 :Workspace 4
+Control F5 :Workspace 5
+Control F6 :Workspace 6
+Control F7 :Workspace 7
+Control F8 :Workspace 8
+Control F9 :Workspace 9
+Control F10 :Workspace 10
+Control F11 :Workspace 11
+Control F12 :Workspace 12
+
+# send the current window to a specific workspace
+Mod4 Shift 1 :SendToWorkspace 1
+Mod4 Shift 2 :SendToWorkspace 2
+Mod4 Shift 3 :SendToWorkspace 3
+Mod4 Shift 4 :SendToWorkspace 4
+
+# send the current window and change to a specific workspace
+Control Mod4 1 :TakeToWorkspace 1
+Control Mod4 2 :TakeToWorkspace 2
+Control Mod4 3 :TakeToWorkspace 3
+Control Mod4 4 :TakeToWorkspace 4
+
+Control 1 :Exec palemoon
+Control 2 :Exec spacefm
+Control 3 :Exec urxvtc -e ncmpcpp
+Control 4 :Exec telegram
+Control 5 :Exec urxvtc -e transmission-remote-cli
+Control 6 :Exec trackma-gtk
+Mod4 :Exec poweroff
+XF86AudioPlay :Exec mpc toggle && ~/.config/notifympc.sh
+XF86AudioStop :Exec mpc stop && ~/.config/notifympc.sh
+XF86AudioPrev :Exec mpc prev &&~/.config/notifympc.sh
+XF86AudioNext :Exec mpc next && ~/.config/notifympc.sh
+Mod4 a :RaiseLayer
+Control Shift Left :MacroCmd {ResizeTo 50% 100%} {MoveTo 00 00 Left}
+Control Shift Right :MacroCmd {ResizeTo 50% 100%} {MoveTo 00 00 Right}
+Control Shift Up :MacroCmd {ResizeTo 100% 50%} {MoveTo 00 00 Up}
+Control Shift Mod4 Down :MacroCmd {ResizeTo 100% 50%} {MoveTo 00 00 Bottom}
+Control Shift h :MacroCmd {ResizeTo 50% 100%} {MoveTo 00 00 Left}
+Control Shift l :MacroCmd {ResizeTo 50% 100%} {MoveTo 00 00 Right}
+Control Shift k :MacroCmd {ResizeTo 100% 50%} {MoveTo 00 00 Up}
+Mod4 Shift p :MacroCmd {MoveTo 50% 50%}
+Control Shift j Down :MacroCmd {ResizeTo 100% 50%} {MoveTo 00 00 Bottom}
+Mod4 l :FocusRight
+Mod4 h :FocusLeft
+Mod4 k :FocusUp
+Mod4 j :FocusDown
+Mod4 Shift r :Restart
+
+Shift Mod4 Left :MoveTo 0 * Left
+Shift Mod4 h :MoveTo 0 * Left
+Shift Mod4 Right :MoveTo 0 * Right
+Shift Mod4 l :MoveTo 0 * Right
+Shift Mod4 Up :MoveTo * 0 Upper
+Shift Mod4 k :MoveTo * 0 Upper
+Shift Mod4 Down :MoveTo * 0 Lower
+Shift Mod4 j :MoveTo * 0 Lower
+Shift Mod4 space :MoveTo 30% 34% 
+Control Mod4 KP_Home :Move -50 -50
+Control Mod4 KP_Up :Move 0 -50
+Control Mod4 KP_Prior :Move 50 -50
+Control Mod4 KP_Left :Move -50 0
+Control Mod4 KP_Right :Move 50 0
+Control Mod4 KP_End :Move -50 -50
+Control Mod4 KP_Down :Move 0 50
+Control Mod4 KP_Next :Move 50 50
+
+Shift Mod4 KP_Home :MoveTo 0 0 UpperLeft
+Shift Mod4 KP_Up :MoveTo * 0 Upper
+Shift Mod4 KP_Prior :MoveTo 0 0 UpperRight
+Shift Mod4 KP_Left :MoveTo 0 * Left
+Shift Mod4 KP_Begin :MoveTo 0 * Right
+Shift Mod4 KP_Right :MoveTo 0 * Right
+Shift Mod4 KP_End :MoveTo 0 0 LowerLeft
+Shift Mod4 KP_Down :MoveTo * 0 Lower
+Shift Mod4 KP_Next :MoveTo 0 0 LowerRight
+
