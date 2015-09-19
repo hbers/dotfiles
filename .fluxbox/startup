@@ -10,21 +10,13 @@ xmodmap "/home/hasan/.Xmodmap"
 # Applications you want to run with fluxbox.
 # MAKE SURE THAT APPS THAT KEEP RUNNING HAVE AN ''&'' AT THE END.
 #
-# unclutter -idle 2 &
-# wmnd &
-# wmsmixer -w &
-# idesk &
-
-# And last but not least we start fluxbox.
-# Because it is the last app you have to run it with ''exec'' before it.
 mpd &
 xset -b &
 redshift &
 numlockx on &
 autocutsel -fork &
 tint2 &
-#/home/hasan/.config/transmissionauto.sh &
-#pnmixer &
+/home/hasan/.config/transmissionauto.sh &
 fbsetbg ~/Belgeler/Wallpapers/new/1436313049294.jpg
 exec fluxbox
 # or if you want to keep a log:

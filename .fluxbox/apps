@@ -1,4 +1,12 @@
-[app] (name=fbrun)
+[app] (name=Telegram)
   [Position]	(WINCENTER)	{0 0}
   [Layer]	{2}
+[end]
+[app] (title=watchlater)
+  [Position] (WINCENTER)	{0 0}
+  [Deco] NONE
+[end]
+[app] (name=Telegram)
+  [Position] (WINCENTER)	{0 0}
+  [Deco] NONE
 [end]

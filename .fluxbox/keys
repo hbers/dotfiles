@@ -39,23 +39,23 @@ OnTitlebar Mouse2 :Lower
 OnTitlebar Mouse3 :WindowMenu
 
 # alt-tab
-Mod1 Tab :PrevWindow {groups} (workspace=[current])
-Mod1 Shift Tab :NextWindow {groups} (workspace=[current])
+Mod1 Tab :NextWindow {groups} (workspace=[current])
+Mod1 Shift Tab :PrevWindow {groups} (workspace=[current])
 
 # cycle through tabs in the current window
 Mod1 Control Tab :NextTab
 Mod1 Shift Control Tab :PrevTab
 
 # go to a specific tab in the current window
-Mod4 1 :Tab 1
-Mod4 2 :Tab 2
-Mod4 3 :Tab 3
-Mod4 4 :Tab 4
-Mod4 5 :Tab 5
-Mod4 6 :Tab 6
-Mod4 7 :Tab 7
-Mod4 8 :Tab 8
-Mod4 9 :Tab 9
+Mod1 1 :Tab 1
+Mod1 2 :Tab 2
+Mod1 3 :Tab 3
+Mod1 4 :Tab 4
+Mod1 5 :Tab 5
+Mod1 6 :Tab 6
+Mod1 7 :Tab 7
+Mod1 8 :Tab 8
+Mod1 9 :Tab 9
 
 # open a terminal
 Mod4 Return :Exec urxvtc.sh
@@ -67,7 +67,7 @@ Mod4 d :Exec dmenu_extended_run
 # if these don't work, use xev to find out your real keycodes
 XF86AudioRaiseVolume :Exec amixer sset Master,0 1+ && ~/.config/volumenotify.sh
 XF86AudioLowerVolume :Exec amixer sset Master,0 1- && ~/.config/volumenotify.sh
-160 :Exec amixer sset Master,0 toggle
+XF86AudioMute :Exec amixer sset Master,0 toggle
 
 # current window commands
 Mod4 q :Close
@@ -77,7 +77,8 @@ Mod4 f :Maximize
 Mod4 Shift f :Fullscreen
 
 # open the window menu
-Mod4 space :RootMenu
+Mod4 m :RootMenu
+Mod4 space :WindowMenu
 
 # exit fluxbox
 Mod4 Shift e  :Exit
@@ -95,18 +96,10 @@ Control Mod4 Left :TakeToPrevWorkspace
 Control Mod4 Right :TakeToNextWorkspace
 
 # change to a specific workspace
-Control F1 :Workspace 1
-Control F2 :Workspace 2
-Control F3 :Workspace 3
-Control F4 :Workspace 4
-Control F5 :Workspace 5
-Control F6 :Workspace 6
-Control F7 :Workspace 7
-Control F8 :Workspace 8
-Control F9 :Workspace 9
-Control F10 :Workspace 10
-Control F11 :Workspace 11
-Control F12 :Workspace 12
+Mod4 1 :Workspace 1
+Mod4 2 :Workspace 2
+Mod4 3 :Workspace 3
+Mod4 4 :Workspace 4
 
 # send the current window to a specific workspace
 Mod4 Shift 1 :SendToWorkspace 1
@@ -131,7 +124,7 @@ XF86AudioPlay :Exec mpc toggle && ~/.config/notifympc.sh
 XF86AudioStop :Exec mpc stop && ~/.config/notifympc.sh
 XF86AudioPrev :Exec mpc prev &&~/.config/notifympc.sh
 XF86AudioNext :Exec mpc next && ~/.config/notifympc.sh
-Mod4 a :RaiseLayer
+Mod4 a :ToggleCmd {RaiseLayer} {LowerLayer}
 Control Shift Left :MacroCmd {ResizeTo 50% 100%} {MoveTo 00 00 Left}
 Control Shift Right :MacroCmd {ResizeTo 50% 100%} {MoveTo 00 00 Right}
 Control Shift Up :MacroCmd {ResizeTo 100% 50%} {MoveTo 00 00 Up}
@@ -174,4 +167,7 @@ Shift Mod4 KP_Right :MoveTo 0 * Right
 Shift Mod4 KP_End :MoveTo 0 0 LowerLeft
 Shift Mod4 KP_Down :MoveTo * 0 Lower
 Shift Mod4 KP_Next :MoveTo 0 0 LowerRight
+XF86Tools :Exec urxvtc.sh -fn "xft:Ubuntu Mono:12" -fg black -bg white -geometry 90x12 -e watchlater
+Mod4 Insert :Exec scrot && dunstify "Screenshot Alındı"
+Mod4 r :Exec ~/.config/redshiftoggle.sh
 

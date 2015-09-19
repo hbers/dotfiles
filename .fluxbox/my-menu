@@ -1,4 +1,3 @@
-[include] (menu)
 [submenu] (Uygulamalar)
  [submenu] (Donatılar)
      [exec] (Arşiv Yöneticisi) {file-roller }
